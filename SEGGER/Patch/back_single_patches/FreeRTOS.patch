@@ -1,0 +1,47 @@
+--- /Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h	2022-04-26 23:34:40.744126900 +0200
++++ /Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h	2023-02-24 19:00:53.645033700 +0100
+@@ -1003,6 +1003,44 @@
+ 	#define configRUN_FREERTOS_SECURE_ONLY 0
+ #endif
+ 
++#ifndef INCLUDE_pxTaskGetStackStart
++	#define INCLUDE_pxTaskGetStackStart 0
++#endif
++
++
++#ifndef traceREADDED_TASK_TO_READY_STATE
++	#define traceREADDED_TASK_TO_READY_STATE( pxTCB )	traceMOVED_TASK_TO_READY_STATE( pxTCB )
++#endif
++
++#ifndef traceMOVED_TASK_TO_DELAYED_LIST
++	#define traceMOVED_TASK_TO_DELAYED_LIST()
++#endif
++
++#ifndef traceMOVED_TASK_TO_OVERFLOW_DELAYED_LIST
++	#define traceMOVED_TASK_TO_OVERFLOW_DELAYED_LIST()
++#endif
++
++#ifndef traceMOVED_TASK_TO_SUSPENDED_LIST
++	#define traceMOVED_TASK_TO_SUSPENDED_LIST( pxTCB )
++#endif
++
++
++#ifndef traceQUEUE_CREATE
++	#define traceQUEUE_CREATE( pxNewQueue )
++#endif
++
++#ifndef traceISR_EXIT_TO_SCHEDULER
++	#define traceISR_EXIT_TO_SCHEDULER()
++#endif
++
++#ifndef traceISR_EXIT
++	#define traceISR_EXIT()
++#endif
++
++#ifndef traceISR_ENTER
++	#define traceISR_ENTER()
++#endif
++
+ /* Sometimes the FreeRTOSConfig.h settings only allow a task to be created using
+  * dynamically allocated RAM, in which case when any task is deleted it is known
+  * that both the task's stack and TCB need to be freed.  Sometimes the

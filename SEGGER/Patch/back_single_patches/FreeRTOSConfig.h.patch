@@ -1,0 +1,18 @@
+--- /Core/Inc/FreeRTOSConfig.h	2023-02-25 19:11:06.577000000 +0100
++++ /Core/Inc/FreeRTOSConfig.h	2023-02-24 20:09:45.290036500 +0100
+@@ -120,6 +120,8 @@
+ #define INCLUDE_xTaskGetCurrentTaskHandle    1
+ #define INCLUDE_eTaskGetState                1
+ 
++#define INCLUDE_xTaskGetIdleTaskHandle 1
++#define INCLUDE_pxTaskGetStackStart 1
+ /*
+  * The CMSIS-RTOS V2 FreeRTOS wrapper is dependent on the heap implementation used
+  * by the application thus the correct define need to be enabled below
+@@ -170,4 +172,6 @@
+ /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
+ /* USER CODE END Defines */
+ 
++#include "SEGGER_SYSVIEW_FreeRTOS.h"
++
+ #endif /* FREERTOS_CONFIG_H */

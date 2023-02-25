@@ -1,0 +1,12 @@
+--- /Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h	2022-04-26 23:34:40.856912500 +0200
++++ /Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h	2023-02-24 19:00:53.653241500 +0100
+@@ -89,7 +89,8 @@
+ 
+ #define portNVIC_INT_CTRL_REG		( * ( ( volatile uint32_t * ) 0xe000ed04 ) )
+ #define portNVIC_PENDSVSET_BIT		( 1UL << 28UL )
+-#define portEND_SWITCHING_ISR( xSwitchRequired ) if( xSwitchRequired != pdFALSE ) portYIELD()
++//#define portEND_SWITCHING_ISR( xSwitchRequired ) if( xSwitchRequired != pdFALSE ) portYIELD()
++#define portEND_SWITCHING_ISR( xSwitchRequired ) { if( xSwitchRequired != pdFALSE ) { traceISR_EXIT_TO_SCHEDULER(); portYIELD(); } else { traceISR_EXIT(); } }
+ #define portYIELD_FROM_ISR( x ) portEND_SWITCHING_ISR( x )
+ /*-----------------------------------------------------------*/
+ 

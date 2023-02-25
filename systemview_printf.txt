@@ -1,0 +1,7 @@
+#include "SEGGER_SYSVIEW.h"
+
+//in the Task:
+char msg[100];
+//in the infinite loop
+snprintf(msg, 100, "%s\n", (char*) "Hello Blue");
+SEGGER_SYSVIEW_PrintfTarget(msg);

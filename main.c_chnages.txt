@@ -1,0 +1,7 @@
+/* Private variables ---------------------------------------------------------*/
+#define DWT_CTRL (*(volatile uint32_t*) 0xE0001000)
+
+/* USER CODE BEGIN 2 */
+DWT_CTRL |= (1<<0);
+SEGGER_SYSVIEW_Conf();
+SEGGER_SYSVIEW_Start();
