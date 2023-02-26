@@ -1,14 +1,5 @@
---- /Core/Src/stm32l4xx_hal_msp.c	2023-02-25 19:11:06.948000000 +0100
-+++ /Core/Src/stm32l4xx_hal_msp.c	2023-02-25 19:13:14.815347100 +0100
-@@ -21,7 +21,7 @@
- /* Includes ------------------------------------------------------------------*/
- #include "main.h"
- /* USER CODE BEGIN Includes */
--
-+#include "FreeRTOS.h"
- /* USER CODE END Includes */
- 
- /* Private typedef -----------------------------------------------------------*/
+--- /Core/Src/stm32l4xx_hal_msp.c	2023-02-25 21:36:43.064000000 +0100
++++ /Core/Src/stm32l4xx_hal_msp.c	2023-02-25 21:32:57.370500900 +0100
 @@ -74,7 +74,7 @@
    HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
  

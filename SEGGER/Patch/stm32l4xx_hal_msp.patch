@@ -1,0 +1,11 @@
+--- /Core/Src/stm32l4xx_hal_msp.c	2023-02-25 21:36:43.064000000 +0100
++++ /Core/Src/stm32l4xx_hal_msp.c	2023-02-25 21:32:57.370500900 +0100
+@@ -74,7 +74,7 @@
+   HAL_NVIC_SetPriority(PendSV_IRQn, 15, 0);
+ 
+   /* USER CODE BEGIN MspInit 1 */
+-
++  NVIC_SetPriorityGrouping( 0 );
+   /* USER CODE END MspInit 1 */
+ }
+ 
